@@ -1,0 +1,28 @@
+# Основной текст — ослепительно белый
+#foreground       #ffffff
+# Курсор сделаем максимально заметным
+#cursor           #ffffff
+background_opacity 0.5
+
+# Цвета для юзера и вывода (ANSI)
+# color2 — это обычно твой юзер. Делаем его ярко-белым.
+#color2  #ffffff
+#color10 #ffffff
+
+# Для второстепенного текста (директории, инфо) используем светло-серый, 
+# но с высоким коэффициентом яркости
+#color4  #cfcfcf
+#color12 #e5e5e5
+
+# Делаем текст чуть плотнее
+bold_font        auto
+font_size        11.0
+# Это заставит Kitty рисовать текст чуть толще на пиксельном уровне
+text_composition_strategy legacy
+
+#selection_foreground #000000
+#selection_background #ffffff
+
+
+
+shell /bin/bash

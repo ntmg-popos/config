@@ -1,0 +1,405 @@
+[
+    {
+        "output": ["eDP-1", "eDP-2"],
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "spacing": 4,
+        "modules-left": [
+            "custom/distro-icon",
+            "hyprland/workspaces",
+            "hyprland/mode",
+            "hyprland/scratchpad",
+            "mpris",
+            "idle_inhibitor"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            "cpu",
+            "memory",
+            "hyprland/language"
+        ],
+        "keyboard-state": {
+            "numlock": true,
+            "capslock": true,
+            "format": "{name} {icon}",
+            "format-icons": {
+                "locked": "\uf023",
+                "unlocked": "\uf09c"
+            }
+        },
+        "hyprland/workspaces": {
+            "format": "{name}",
+            "on-click": "activate",
+            "all-outputs": true,
+            "persistent-workspaces": {
+                "desc:China Star Optoelectronics Technology Co. Ltd MNG007QX2-1": [1, 2, 3],
+                "HDMI-A-1": [4, 5, 6]
+            }
+        },
+        "hyprland/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "hyprland/scratchpad": {
+            "format": "{icon} {count}",
+            "show-empty": false,
+            "format-icons": [
+                "",
+                "\uf2d2"
+            ],
+            "tooltip": true,
+            "tooltip-format": "{app}: {title}"
+        },
+        "mpd": {
+            "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \u2e28{songPosition}|{queueLength}\u2e29 {volume}% \uf001",
+            "format-disconnected": "Disconnected \uf001",
+            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped \uf001",
+            "unknown-tag": "N/A",
+            "interval": 5,
+            "consume-icons": {
+                "on": "\uf0c4 "
+            },
+            "random-icons": {
+                "off": "<span color=\"#e29555\">\uf074</span> ",
+                "on": "\uf074 "
+            },
+            "repeat-icons": {
+                "on": "\uf01e "
+            },
+            "single-icons": {
+                "on": "\uf01e1 "
+            },
+            "state-icons": {
+                "paused": "\uf04c",
+                "playing": "\uf04b"
+            },
+            "tooltip-format": "MPD (connected)",
+            "tooltip-format-disconnected": "MPD (disconnected)"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "\uf06e",
+                "deactivated": "\uf070"
+            }
+        },
+        "tray": {
+            "spacing": 10
+        },
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}"
+        },
+        "cpu": {
+            "format": "{usage}% \uf2db",
+            "tooltip": false
+        },
+        "memory": {
+            "format": "{}% \uf0c9"
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{temperatureC}\u00b0C {icon}",
+            "format-icons": [
+                "\uf76b",
+                "\uf2c9",
+                "\uf769"
+            ]
+        },
+        "backlight": {
+            "format": "{percent}% {icon}",
+            "format-icons": [
+                "\ud83c\udf11",
+                "\ud83c\udf18",
+                "\ud83c\udf17",
+                "\ud83c\udf16",
+                "\ud83c\udf15"
+            ]
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-full": "{capacity}% {icon}",
+            "format-charging": "{capacity}% \uf5e7",
+            "format-plugged": "{capacity}% \uf1e6",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "\uf244",
+                "\uf243",
+                "\uf242",
+                "\uf241",
+                "\uf240"
+            ]
+        },
+        "power-profiles-daemon": {
+            "format": "{icon}",
+            "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+            "tooltip": true,
+            "format-icons": {
+                "default": "perf",
+                "performance": "perf",
+                "balanced": "bal",
+                "power-saver": "save"
+            },
+            "on-scroll-up": "/home/c074rd/.config/waybar/cycle_power_profiles.sh up",
+            "on-scroll-down": "/home/c074rd/.config/waybar/cycle_power_profiles.sh down",
+            "on-click": ""
+        },
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) \uf1eb",
+            "format-ethernet": "{ipaddr}/{cidr} \uf796",
+            "tooltip-format": "{ifname} via {gwaddr} \uf796",
+            "format-linked": "{ifname} (No IP) \uf796",
+            "format-disconnected": "Disconnected \u26a0",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "mpris": {
+            "format": "{player_icon} {artist} - {title}",
+            "format-paused": "{player_icon} <i>{status_icon}</i> {artist} - {title}",
+            "player-icons": {
+                "default": "\u25b6",
+                "spotify": "\uf1bc",
+                "firefox": "\uf269"
+            },
+            "status-icons": {
+                "paused": "\uf04c"
+            },
+            "max-length": 90,
+            "on-click": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-scroll-up": "playerctl previous"
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}% {icon}\uf294 {format_source}",
+            "format-bluetooth-muted": "\uf6a9 {icon}\uf294 {format_source}",
+            "format-muted": "\uf6a9 {format_source}",
+            "format-source": "{volume}% \uf130",
+            "format-source-muted": "\uf131",
+            "format-icons": {
+                "headphone": "\uf025",
+                "hands-free": "\uf590",
+                "headset": "\uf590",
+                "phone": "\uf095",
+                "portable": "\uf095",
+                "car": "\uf1b9",
+                "default": [
+                    "\uf026",
+                    "\uf027",
+                    "\uf028"
+                ]
+            },
+            "on-click": "pavucontrol"
+        },
+        "custom/media": {
+            "format": "{icon} {text}",
+            "return-type": "json",
+            "max-length": 40,
+            "format-icons": {
+                "spotify": "\uf1bc",
+                "default": "\ud83c\udf9c"
+            },
+            "escape": true,
+            "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+        },
+        "custom/power": {
+            "format": "\u23fb ",
+            "tooltip": false,
+            "menu": "on-click",
+            "menu-file": "$HOME/.config/waybar/power_menu.xml",
+            "menu-actions": {
+                "shutdown": "shutdown",
+                "reboot": "reboot",
+                "suspend": "systemctl suspend",
+                "hibernate": "systemctl hibernate"
+            }
+        },
+        "hyprland/language": {
+            "format": "{}",
+            "format-en": "us",
+            "format-ua": "ua",
+            "format-uk": "ua",
+            "format-ru": "ru"
+        },
+        "custom/distro-icon": {
+            "format": "\u25cf",
+            "on-click": "wofi --show drun",
+            "tooltip": false
+        }
+    },
+    {
+        "output": ["eDP-1", "eDP-2"],
+        "layer": "top",
+        "position": "bottom",
+        "height": 18,
+        "spacing": 4,
+        "modules-left": [
+            "hyprland/window",
+            "temperature"
+        ],
+        "modules-center": [
+            "wlr/taskbar"
+        ],
+        "modules-right": [
+            "power-profiles-daemon",
+            "battery",
+            "tray",
+            "custom/weather"
+        ],
+        "custom/weather": {
+            "format": "{}",
+            "tooltip": true,
+            "interval": 3600,
+            "exec": "/home/c074rd/.config/waybar/weather.py",
+            "return-type": "json"
+        },
+        "power-profiles-daemon": {
+            "format": "{icon}",
+            "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+            "tooltip": true,
+            "format-icons": {
+                "default": "perf",
+                "performance": "perf",
+                "balanced": "bal",
+                "power-saver": "save"
+            },
+            "on-scroll-up": "/home/c074rd/.config/waybar/cycle_power_profiles.sh up",
+            "on-scroll-down": "/home/c074rd/.config/waybar/cycle_power_profiles.sh down",
+            "on-click": ""
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{temperatureC}\u00b0C {icon}",
+            "format-icons": [
+                "\uf76b",
+                "\uf2c9",
+                "\uf769"
+            ]
+        },
+        "wlr/taskbar": {
+            "format": "{icon}",
+            "icon-size": 8,
+            "icon-theme": "Papirus",
+            "tooltip": true,
+            "tooltip-format": "{title}",
+            "on-click": "activate",
+            "on-click-middle": "close",
+            "ignore-list": [],
+            "app_ids-mapping": {
+                "firefoxdeveloperedition": "firefox"
+            }
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-full": "{capacity}% {icon}",
+            "format-charging": "{capacity}% \uf5e7",
+            "format-plugged": "{capacity}% \uf1e6",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "\uf244",
+                "\uf243",
+                "\uf242",
+                "\uf241",
+                "\uf240"
+            ]
+        },
+        "tray": {
+            "spacing": 10
+        },
+        "hyprland/window": {
+            "format": "{}",
+            "max-length": 60,
+            "separate-outputs": false
+        }
+    },
+    {
+        "output": "HDMI-A-1",
+        "layer": "top",
+        "position": "bottom",
+        "height": 36,
+        "spacing": 4,
+        "modules-left": [
+            "custom/distro-icon",
+            "hyprland/workspaces"
+        ],
+        "modules-center": [
+            "hyprland/window"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            "battery",
+            "clock"
+        ],
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}"
+        },
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) \uf1eb",
+            "format-ethernet": "{ipaddr}/{cidr} \uf796",
+            "tooltip-format": "{ifname} via {gwaddr} \uf796",
+            "format-linked": "{ifname} (No IP) \uf796",
+            "format-disconnected": "Disconnected \u26a0",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}% {icon}\uf294 {format_source}",
+            "format-bluetooth-muted": "\uf6a9 {icon}\uf294 {format_source}",
+            "format-muted": "\uf6a9 {format_source}",
+            "format-source": "{volume}% \uf130",
+            "format-source-muted": "\uf131",
+            "format-icons": {
+                "default": [
+                    "\uf026",
+                    "\uf027",
+                    "\uf028"
+                ]
+            },
+            "on-click": "pavucontrol"
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-full": "{capacity}% {icon}",
+            "format-charging": "{capacity}% \uf5e7",
+            "format-plugged": "{capacity}% \uf1e6",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "\uf244",
+                "\uf243",
+                "\uf242",
+                "\uf241",
+                "\uf240"
+            ]
+        },
+        "hyprland/workspaces": {
+            "format": "{name}",
+            "on-click": "activate",
+            "all-outputs": true,
+            "persistent-workspaces": {
+                "*": 6
+            }
+        },
+        "custom/distro-icon": {
+            "format": "\u25cf",
+            "on-click": "wofi --show drun",
+            "tooltip": false
+        }
+    }
+]

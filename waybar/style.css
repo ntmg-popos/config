@@ -1,0 +1,191 @@
+@define-color bg_main rgba(45, 50, 56, 0.85);
+@define-color bg_dark rgba(28, 32, 36, 0.9);
+@define-color text_muted #8a95a5;
+@define-color text_bright #d9e2ec;
+@define-color warning #e29555;
+
+/* Базовые настройки шрифтов */
+* {
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 11px;
+    border: none;
+    border-radius: 8px; 
+}
+
+/* Настройки бара */
+window#waybar {
+    background-color: transparent;
+    color: @text_bright;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: rgba(217, 226, 236, 0.1);
+    box-shadow: inset 0 -3px @bg_dark;
+    border-radius: 8px;
+}
+
+/* Оформление блоков (левый, центральный и правый) */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @bg_main; 
+    color: @text_bright;     
+    margin: 4px; 
+    padding: 2px 4px; 
+    border: 1px solid rgba(217, 226, 236, 0.1); 
+    border-radius: 8px; 
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @text_muted;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#workspaces button:hover {
+    background: rgba(217, 226, 236, 0.1);
+    border-radius: 8px;
+}
+
+#workspaces button.active {
+    background-color: @bg_dark;
+    color: @text_bright;
+    box-shadow: inset 0 -3px @text_bright;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    padding: 0 15px;
+}
+
+#workspaces button.urgent {
+    background-color: @warning;
+    color: @bg_dark;
+}
+
+/* Модули */
+#clock,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#language,
+#battery,
+#tray,
+#mpris,
+#custom-weather {
+    padding: 0 8px;
+    color: @text_bright;
+}
+
+/* Разделители между модулями */
+#workspaces,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#language,
+#battery,
+#tray {
+    border-right: 1px solid rgba(138, 149, 165, 0.3);
+}
+
+/* Убираем правый разделитель у последних элементов блоков */
+.modules-left > widget:last-child > #workspaces,
+#scratchpad,
+#clock,
+#custom-weather {
+    border-right: none;
+}
+
+/* Системный трей */
+#tray {
+    background-color: transparent;
+    min-width: 16px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: none;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @text_muted;
+    border-radius: 8px;
+}
+
+/* Настройки часов и батареи */
+#clock {
+    font-weight: bold;
+}
+
+#battery.charging, #battery.plugged {
+    color: @text_bright;
+}
+
+#battery.critical:not(.charging) {
+    color: @warning;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @warning;
+        color: @bg_dark;
+    }
+}
+
+/* Hover-эффекты */
+#idle_inhibitor:hover,
+#pulseaudio:hover,
+#network:hover,
+#power-profiles-daemon:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#language:hover,
+#battery:hover,
+#clock:hover,
+#tray:hover,
+#custom-weather:hover {
+    background-color: rgba(217, 226, 236, 0.1);
+    border-radius: 8px;
+}
+
+#mpris {
+    background: rgba(217, 226, 236, 0.05);
+    margin: 2px 8px;
+    padding: 0 8px;
+    border-radius: 8px;
+    color: @text_bright;
+}
+
+#mpris.paused {
+    background: rgba(45, 50, 56, 0.4);
+    opacity: 0.7;
+}
